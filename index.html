@@ -1,147 +1,657 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile</title>
-  <style>
-    /* Reset some default styles */
-    html, body { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .container {
-      background: #fff;
-      border-radius: 1.5rem;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      padding: 2rem 1.5rem;
-      max-width: 370px;
-      width: 100%;
-      text-align: center;
-    }
-    .avatar {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid #e0e7ef;
-    }
-    h1 {
-      font-size: 2rem;
-      margin: 0.5rem 0 0.2rem 0;
-      color: #222;
-    }
-    .bio {
-      color: #555;
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-    }
-    .links {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      margin-bottom: 1.2rem;
-    }
-    .icon-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #f3f6fa;
-      transition: background 0.2s;
-      text-decoration: none;
-    }
-    .icon-link:hover {
-      background: #e0e7ef;
-    }
-    .icon-link svg {
-      width: 24px;
-      height: 24px;
-      fill: #444;
-    }
-    .contact {
-      margin-bottom: 1.5rem;
-    }
-    .contact a {
-      display: block;
-      color: #2563eb;
-      text-decoration: none;
-      margin: 0.2rem 0;
-      font-size: 1rem;
-      word-break: break-all;
-    }
-    .resume-btn {
-      display: inline-block;
-      padding: 0.7rem 1.5rem;
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      border-radius: 2rem;
-      font-size: 1rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: background 0.2s;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
-    .resume-btn:hover {
-      background: #1e40af;
-    }
-    @media (max-width: 480px) {
-      .container {
-        padding: 1.2rem 0.5rem;
-        max-width: 98vw;
-      }
-      h1 { font-size: 1.5rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Personal Profile</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-image {
+            margin-bottom: 20px;
+        }
+
+        .profile-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .bio {
+            font-size: 16px;
+            color: #6b7280;
+            max-width: 300px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Tray Sections */
+        .tray-section {
+            margin-bottom: 15px;
+        }
+
+        .tray {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tray:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Social Links */
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .social-link i {
+            font-size: 20px;
+            margin-right: 15px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .social-link span {
+            font-size: 16px;
+        }
+
+        /* Social Link Colors */
+        .linkedin {
+            background: linear-gradient(135deg, #0077b5, #005885);
+            color: white;
+        }
+
+        .instagram {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+
+        .website {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .resume {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+
+        /* Contact Tray */
+        .contact-tray {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .contact-link:last-child {
+            border-bottom: none;
+        }
+
+        .contact-link:hover {
+            background-color: #f9fafb;
+        }
+
+        .contact-link i {
+            font-size: 18px;
+            margin-right: 15px;
+            width: 24px;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .contact-link span {
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-section h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #1f2937;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .carousel-item {
+            flex: 0 0 calc(100% - 20px);
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-item a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 20px 15px 15px;
+            text-align: center;
+        }
+
+        .overlay span {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        /* Carousel Navigation */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .carousel-btn i {
+            color: #1f2937;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .profile-section {
+                padding: 25px 15px;
+            }
+            
+            .profile-image img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+            
+            .bio {
+                font-size: 15px;
+            }
+            
+            .social-link {
+                padding: 16px 18px;
+            }
+            
+            .social-link i {
+                font-size: 18px;
+            }
+            
+            .social-link span {
+                font-size: 15px;
+            }
+            
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .carousel-btn i {
+                font-size: 12px;
+            }
+        }
+
+        /* Smooth scrolling for better UX */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus states for accessibility */
+        .social-link:focus,
+        .contact-link:focus,
+        .carousel-btn:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+
+        /* Loading animation for images */
+        img {
+            transition: opacity 0.3s ease;
+        }
+
+        img[src*="placeholder"] {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-  <main class="container">
-    <!-- Profile Image (replace src with your own image) -->
-    <img src="https://via.placeholder.com/90" alt="Profile Photo" class="avatar">
+    <div class="container">
+        <!-- Header Section with Profile -->
+        <header class="profile-section">
+            <div class="profile-image">
+                <!-- Replace with your actual image path -->
+                <img src="https://via.placeholder.com/150x150/4F46E5/FFFFFF?text=JD" alt="John Doe">
+            </div>
+            <h1 class="name">John Doe</h1>
+            <p class="bio">
+                Digital product designer and creative technologist passionate about building meaningful experiences. 
+                Currently crafting the future at TechCorp.
+            </p>
+        </header>
 
-    <!-- Name (replace with your name) -->
-    <h1><!-- Your Name -->Jonny Chan</h1>
+        <!-- Social Links Tray -->
+        <div class="tray-section">
+            <div class="tray">
+                <a href="https://linkedin.com/in/johndoe" class="social-link linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
 
-    <!-- Short Bio (replace with your bio) -->
-    <div class="bio">Jonny Chan (Growth Marketing Manager at Coalition). Coalition is a cybersecurity insurance startup based in San Francisco Bay Area, where Jonny manages customer growth and retention.</div>
+        <!-- Instagram Tray -->
+        <div class="tray-section">
+            <div class="tray">
+                <a href="https://instagram.com/johndoe" class="social-link instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
 
-    <!-- Social Links (replace hrefs with your links) -->
-    <div class="links">
-      <!-- LinkedIn -->
-      <a class="icon-link" href="#" target="_blank" aria-label="LinkedIn">
-        <!-- LinkedIn SVG Icon -->
-        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm15.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.37-1.54 2.82-1.54 3.02 0 3.58 1.99 3.58 4.58v5.6z"/></svg>
-      </a>
-      <!-- Instagram -->
-      <a class="icon-link" href="#" target="_blank" aria-label="Instagram">
-        <!-- Instagram SVG Icon -->
-        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43-.058-1.266-.07-1.65-.07-4.85s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41 1.266-.058 1.65-.07 4.85-.07zm0-2.2c-3.259 0-3.667.012-4.947.07-1.276.058-2.147.24-2.905.51-.8.29-1.48.68-2.16 1.36-.68.68-1.07 1.36-1.36 2.16-.27.758-.452 1.629-.51 2.905-.058 1.28-.07 1.688-.07 4.947s.012 3.667.07 4.947c.058 1.276.24 2.147.51 2.905.29.8.68 1.48 1.36 2.16.68.68 1.36 1.07 2.16 1.36.758.27 1.629.452 2.905.51 1.28.058 1.688.07 4.947.07s3.667-.012 4.947-.07c1.276-.058 2.147-.24 2.905-.51.8-.29 1.48-.68 2.16-1.36.68-.68 1.07-1.36 1.36-2.16.27-.758.452-1.629.51-2.905.058-1.28.07-1.688.07-4.947s-.012-3.667-.07-4.947c-.058-1.276-.24-2.147-.51-2.905-.29-.8-.68-1.48-1.36-2.16-.68-.68-1.36-1.07-2.16-1.36-.758-.27-1.629-.452-2.905-.51-1.28-.058-1.688-.07-4.947-.07zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.8a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
-      </a>
-      <!-- Twitter -->
-      <a class="icon-link" href="#" target="_blank" aria-label="Twitter">
-        <!-- Twitter SVG Icon -->
-        <svg viewBox="0 0 24 24"><path d="M22.46 5.924c-.793.352-1.645.59-2.54.698a4.48 4.48 0 0 0 1.963-2.475 8.94 8.94 0 0 1-2.828 1.082 4.48 4.48 0 0 0-7.636 4.086c-3.728-.186-7.034-1.97-9.243-4.68a4.48 4.48 0 0 0 1.388 5.976c-.7-.022-1.36-.215-1.937-.537v.054a4.48 4.48 0 0 0 3.59 4.393c-.33.09-.68.14-1.04.14-.25 0-.49-.024-.73-.07.49 1.53 1.91 2.65 3.6 2.68a8.98 8.98 0 0 1-5.56 1.92c-.36 0-.71-.02-1.06-.06a12.7 12.7 0 0 0 6.88 2.02c8.26 0 12.78-6.84 12.78-12.78 0-.19-.01-.37-.02-.56a9.1 9.1 0 0 0 2.24-2.32z"/></svg>
-      </a>
+        <!-- Contact Info Tray -->
+        <div class="tray-section">
+            <div class="tray contact-tray">
+                <a href="mailto:john.doe@email.com" class="contact-link email">
+                    <i class="fas fa-envelope"></i>
+                    <span>john.doe@email.com</span>
+                </a>
+                <a href="tel:+1234567890" class="contact-link phone">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (234) 567-890</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Website Tray -->
+        <div class="tray-section">
+            <div class="tray">
+                <a href="https://johndoe.com" class="social-link website" target="_blank">
+                    <i class="fas fa-globe"></i>
+                    <span>Website</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Resume Download Tray -->
+        <div class="tray-section">
+            <div class="tray">
+                <a href="resume.pdf" class="social-link resume" download>
+                    <i class="fas fa-download"></i>
+                    <span>Download Résumé</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Work Portfolio Carousel -->
+        <div class="portfolio-section">
+            <h2>My Work</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Work Image 1 -->
+                    <div class="carousel-item">
+                        <a href="https://project1.com" target="_blank">
+                            <img src="https://via.placeholder.com/300x200/6366F1/FFFFFF?text=Project+1" alt="Project 1">
+                            <div class="overlay">
+                                <span>Project 1</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Work Image 2 -->
+                    <div class="carousel-item">
+                        <a href="https://project2.com" target="_blank">
+                            <img src="https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Project+2" alt="Project 2">
+                            <div class="overlay">
+                                <span>Project 2</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Work Image 3 -->
+                    <div class="carousel-item">
+                        <a href="https://project3.com" target="_blank">
+                            <img src="https://via.placeholder.com/300x200/EC4899/FFFFFF?text=Project+3" alt="Project 3">
+                            <div class="overlay">
+                                <span>Project 3</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Work Image 4 -->
+                    <div class="carousel-item">
+                        <a href="https://project4.com" target="_blank">
+                            <img src="https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Project+4" alt="Project 4">
+                            <div class="overlay">
+                                <span>Project 4</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Work Image 5 -->
+                    <div class="carousel-item">
+                        <a href="https://project5.com" target="_blank">
+                            <img src="https://via.placeholder.com/300x200/10B981/FFFFFF?text=Project+5" alt="Project 5">
+                            <div class="overlay">
+                                <span>Project 5</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Work Image 6 -->
+                    <div class="carousel-item">
+                        <a href="https://project6.com" target="_blank">
+                            <img src="https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Project+6" alt="Project 6">
+                            <div class="overlay">
+                                <span>Project 6</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Carousel Navigation -->
+                <button class="carousel-btn prev" onclick="moveCarousel('prev')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="moveCarousel('next')">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- Contact Info (replace with your info) -->
-    <div class="contact">
-      <a href="mailto:email@example.com">email@example.com</a>
-      <a href="tel:+1234567890">+1 (234) 567-890</a>
-    </div>
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const carouselTrack = document.querySelector('.carousel-track');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const totalSlides = carouselItems.length;
 
-    <!-- Résumé Download Button (replace href with your file) -->
-    <a class="resume-btn" href="#" download>Download Résumé</a>
-  </main>
+        // Initialize carousel
+        function initCarousel() {
+            if (carouselTrack && carouselItems.length > 0) {
+                updateCarouselButtons();
+            }
+        }
+
+        // Move carousel to specific slide
+        function moveCarousel(direction) {
+            if (direction === 'next') {
+                currentSlide = (currentSlide + 1) % totalSlides;
+            } else if (direction === 'prev') {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            } else {
+                // For direct slide navigation
+                currentSlide = direction;
+            }
+            
+            updateCarouselPosition();
+            updateCarouselButtons();
+        }
+
+        // Update carousel position
+        function updateCarouselPosition() {
+            if (carouselTrack) {
+                const slideWidth = carouselItems[0].offsetWidth + 15; // Include gap
+                const translateX = -currentSlide * slideWidth;
+                carouselTrack.style.transform = `translateX(${translateX}px)`;
+            }
+        }
+
+        // Update carousel navigation buttons
+        function updateCarouselButtons() {
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            
+            if (prevBtn && nextBtn) {
+                // Show/hide buttons based on current slide
+                prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+                nextBtn.style.opacity = currentSlide === totalSlides - 1 ? '0.5' : '1';
+                
+                // Disable buttons at boundaries
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+            }
+        }
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        function handleTouchStart(e) {
+            startX = e.touches[0].clientX;
+        }
+
+        function handleTouchMove(e) {
+            endX = e.touches[0].clientX;
+        }
+
+        function handleTouchEnd() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    moveCarousel('next');
+                } else {
+                    // Swipe right - previous slide
+                    moveCarousel('prev');
+                }
+            }
+        }
+
+        // Add touch event listeners
+        function addTouchSupport() {
+            const carouselContainer = document.querySelector('.carousel-container');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+                carouselContainer.addEventListener('touchmove', handleTouchMove, { passive: true });
+                carouselContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+            }
+        }
+
+        // Auto-advance carousel (optional)
+        let autoAdvanceInterval;
+
+        function startAutoAdvance() {
+            if (totalSlides > 1) {
+                autoAdvanceInterval = setInterval(() => {
+                    moveCarousel('next');
+                }, 5000); // Change slide every 5 seconds
+            }
+        }
+
+        function stopAutoAdvance() {
+            if (autoAdvanceInterval) {
+                clearInterval(autoAdvanceInterval);
+            }
+        }
+
+        // Pause auto-advance on hover
+        function addCarouselHoverEvents() {
+            const carouselContainer = document.querySelector('.carousel-container');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', stopAutoAdvance);
+                carouselContainer.addEventListener('mouseleave', startAutoAdvance);
+            }
+        }
+
+        // Add loading states for images
+        function addImageLoadingStates() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('load', () => {
+                    img.style.opacity = '1';
+                });
+                
+                img.addEventListener('error', () => {
+                    img.style.opacity = '0.5';
+                    console.warn('Failed to load image:', img.src);
+                });
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initCarousel();
+            addTouchSupport();
+            addCarouselHoverEvents();
+            addImageLoadingStates();
+            
+            // Start auto-advance after a delay
+            setTimeout(startAutoAdvance, 2000);
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                updateCarouselPosition();
+            });
+        });
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            const carouselContainer = document.querySelector('.carousel-container');
+            if (carouselContainer && document.activeElement.closest('.carousel-container')) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    moveCarousel('prev');
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    moveCarousel('next');
+                }
+            }
+        });
+    </script>
 </body>
 </html>

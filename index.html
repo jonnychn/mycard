@@ -236,7 +236,7 @@
   </div>
   <script>
     const validCodes = {
-      "0704": "FoundersHK Jul 10 Event"
+      "0710": "Founders HK event on July 10 '25"
     };
     function checkCode() {
       const input = document.getElementById('event-code').value.trim();
@@ -245,7 +245,7 @@
         document.getElementById('code-gate').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
         const stickyBar = document.getElementById('sticky-bar');
-        stickyBar.textContent = `Hello! We just met at ${validCodes[input]}`;
+        stickyBar.textContent = `Hello! We just met at the ${validCodes[input]}`;
         stickyBar.style.display = 'block';
       } else {
         error.textContent = 'Incorrect code. Please try again.';

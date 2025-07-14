@@ -107,150 +107,83 @@
       padding: 20px 15px 15px;
       text-align: center;
     }
-    #code-gate {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: white;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    #code-gate input {
-      padding: 10px;
-      font-size: 18px;
-      margin-top: 10px;
-      width: 120px;
-      text-align: center;
-    }
-    #code-gate button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      font-size: 16px;
-    }
-    #error-msg {
-      color: red;
-      margin-top: 10px;
-    }
-    #sticky-bar {
-      display: none;
-      position: sticky;
-      top: 0;
-      background: #f97316; /* Bright orange */
-      color: white;
-      padding: 10px;
-      text-align: center;
-      font-size: 14px;
-      z-index: 1000;
-    }
-    #main-content { display: none; }
   </style>
 </head>
 <body>
-  <div id="code-gate">
-    <h2>Psst... what's the secret code?</h2>
-    <input type="text" id="event-code" placeholder="4-digit code" maxlength="4">
-    <button onclick="checkCode()">Submit</button>
-    <div id="error-msg"></div>
-  </div>
-  <div id="sticky-bar"></div>
-  <div id="main-content">
-    <div class="container">
-      <header class="profile-section">
-        <div class="profile-image">
-          <img src="https://media.licdn.com/dms/image/v2/D5603AQHlhK-XfRxK-w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730002525755?e=1756944000&v=beta&t=D6mI09roAW2yd6s7Z2rdKZUGKNG9GzbEMQfBABYDuYI" alt="Jonny Chan">
-        </div>
-        <h1 class="name">Jonny Chan</h1>
-        <p class="tagline">Daytime Marketer. Nighttime Creator</p>
-        <p class="bio">I build AI growth systems at a fintech startup. Before I did marketing research @ Meta and ran paid acquisition @ ipsy ($400M ARR). A nature love. Indie Hacker 🇺🇸 🇭🇰</p>
-      </header>
-      <div class="tray-section">
-        <div class="tray">
-          <a href="https://www.linkedin.com/in/jonnychn/" class="social-link linkedin" target="_blank">
-            <i class="fab fa-linkedin"></i>
-            <span>LinkedIn /in/jonnychn</span>
-          </a>
-        </div>
+  <div class="container">
+    <header class="profile-section">
+      <div class="profile-image">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQHlhK-XfRxK-w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730002525755?e=1756944000&v=beta&t=D6mI09roAW2yd6s7Z2rdKZUGKNG9GzbEMQfBABYDuYI" alt="Jonny Chan">
       </div>
-      <div class="tray-section">
-        <div class="tray">
-          <a href="https://www.instagram.com/jonnychn/" class="social-link instagram" target="_blank">
-            <i class="fab fa-instagram"></i>
-            <span>Instagram @jonnychn</span>
+      <h1 class="name">Jonny Chan</h1>
+      <p class="tagline">Daytime Marketer. Nighttime Creator</p>
+      <p class="bio">I build AI growth systems at a fintech startup. Before I did marketing research @ Meta and ran paid acquisition @ ipsy ($400M ARR). A nature love. Indie Hacker 🇺🇸 🇭🇰</p>
+    </header>
+    <div class="tray-section">
+      <div class="tray">
+        <a href="https://www.linkedin.com/in/jonnychn/" class="social-link linkedin" target="_blank">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn /in/jonnychn</span>
+        </a>
+      </div>
+    </div>
+    <div class="tray-section">
+      <div class="tray">
+        <a href="https://www.instagram.com/jonnychn/" class="social-link instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram @jonnychn</span>
+        </a>
+      </div>
+    </div>
+    <div class="tray-section">
+      <div class="tray contact-tray">
+        <a href="mailto:cchanjonny@gmail.com" class="contact-link email">
+          <i class="fas fa-envelope"></i>
+          <span>cchanjonny@gmail.com</span>
+        </a>
+        <a href="tel:+14155042673" class="contact-link phone">
+          <i class="fas fa-phone"></i>
+          <span>+1 (415) 504-2673</span>
+        </a>
+      </div>
+    </div>
+    <div class="tray-section">
+      <div class="tray">
+        <a href="https://jonnychn.carrd.co/" class="social-link website" target="_blank">
+          <i class="fas fa-globe"></i>
+          <span>Website</span>
+        </a>
+      </div>
+    </div>
+    <div class="tray-section">
+      <div class="tray">
+        <a href="http://jonnychan.com/jonny.vcf" class="social-link resume" download>
+          <i class="fas fa-download"></i>
+          <span>Save to Address Book</span>
+        </a>
+      </div>
+    </div>
+    <div class="portfolio-section">
+      <h2>My Portfolio</h2>
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7335900526775021569/" target="_blank">
+            <img src="https://i.imgur.com/LBOnsMN.png" alt="My First AI Hackathon">
+            <div class="overlay">
+              <span>My First AI Hackathon</span>
+            </div>
           </a>
         </div>
-      </div>
-      <div class="tray-section">
-        <div class="tray contact-tray">
-          <a href="mailto:cchanjonny@gmail.com" class="contact-link email">
-            <i class="fas fa-envelope"></i>
-            <span>cchanjonny@gmail.com</span>
+        <div class="carousel-item">
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7275019131660247042/" target="_blank">
+            <img src="https://i.imgur.com/DWr7JP6.png" alt="I showed ChatGPT magic">
+            <div class="overlay">
+              <span>I showed ChatGPT magic</span>
+            </div>
           </a>
-          <a href="tel:+14155042673" class="contact-link phone">
-            <i class="fas fa-phone"></i>
-            <span>+1 (415) 504-2673</span>
-          </a>
-        </div>
-      </div>
-      <div class="tray-section">
-        <div class="tray">
-          <a href="https://jonnychn.carrd.co/" class="social-link website" target="_blank">
-            <i class="fas fa-globe"></i>
-            <span>Website</span>
-          </a>
-        </div>
-      </div>
-      <div class="tray-section">
-        <div class="tray">
-          <a href="http://jonnychan.com/jonny.vcf" class="social-link resume" download>
-            <i class="fas fa-download"></i>
-            <span>Save to Address Book</span>
-          </a>
-        </div>
-      </div>
-      <div class="portfolio-section">
-        <h2>My Portfolio</h2>
-        <div class="carousel-track">
-          <div class="carousel-item">
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7335900526775021569/" target="_blank">
-              <img src="https://i.imgur.com/LBOnsMN.png" alt="My First AI Hackathon">
-              <div class="overlay">
-                <span>My First AI Hackathon</span>
-              </div>
-            </a>
-          </div>
-          <div class="carousel-item">
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7275019131660247042/" target="_blank">
-              <img src="https://i.imgur.com/DWr7JP6.png" alt="I showed ChatGPT magic">
-              <div class="overlay">
-                <span>I showed ChatGPT magic</span>
-              </div>
-            </a>
-          </div>
         </div>
       </div>
     </div>
   </div>
-  <script>
-    const validCodes = {
-      "0710": "FoundersHK event on July 10 '25"
-    };
-    function checkCode() {
-      const input = document.getElementById('event-code').value.trim();
-      const error = document.getElementById('error-msg');
-      if (validCodes[input]) {
-        document.getElementById('code-gate').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-        const stickyBar = document.getElementById('sticky-bar');
-        stickyBar.textContent = `Hello! We just met at the ${validCodes[input]}`;
-        stickyBar.style.display = 'block';
-      } else {
-        error.textContent = 'Incorrect code. Please try again.';
-      }
-    }
-  </script>
 </body>
 </html>
